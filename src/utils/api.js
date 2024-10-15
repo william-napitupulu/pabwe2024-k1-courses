@@ -257,7 +257,7 @@ const api = (() => {
     return message;
   }
 
-  async function postAddContent({ id, title, description }) {
+  async function postAddContent({ id, title, youtube }) {
     const response = await _fetchWithAuth(
       `${BASE_URL}/courses/${id}/contents`,
       {
@@ -352,7 +352,7 @@ const api = (() => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          statusbar,
+          status,
         }),
       }
     );
