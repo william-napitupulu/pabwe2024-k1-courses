@@ -10,6 +10,7 @@ const ActionType = {
   DELETE_COURSE: "DELETE_COURSE",
   ADD_STUDENT: "ADD_STUDENT",
   DELETE_STUDENT: "DELETE_STUDENT",
+  UPDATE_STUDENT: "UPDATE_STUDENT",
   ADD_CONTENT: "ADD_CONTENT",
   DETAIL_CONTENT: "DETAIL_CONTENT",
   UPDATE_CONTENT: "UPDATE_CONTENT",
@@ -53,7 +54,7 @@ function updateCourseActionCreator(course) {
   };
 }
 
-function deleteCoursectionCreator(status) {
+function deleteCourseActionCreator(status) {
   return {
     type: ActionType.DELETE_COURSE,
     payload: {
@@ -85,6 +86,15 @@ function deleteStudentActionCreator(status) {
     type: ActionType.DELETE_STUDENT,
     payload: {
       status,
+    },
+  };
+}
+
+function changeStudentRatingsActionCreator(student) {
+  return {
+    type: ActionType.UPDATE_STUDENT,
+    payload: {
+      student,
     },
   };
 }
@@ -125,7 +135,7 @@ function deleteContentActionCreator(status) {
   };
 }
 
-function changeContentStatusActionCreator(course) {
+function changeContentStatusActionCreator(content) {
   return {
     type: ActionType.DETAIL_CONTENT,
     payload: {
@@ -206,7 +216,7 @@ function asyncChangeCoverTodo({ id, cover }) {
     dispatch(showLoading());
     try {
       const updatedCourse = await api.postChangeCoverCourse({ id, cover });
-      dispatch(changeCoverTodoActionCreator(updatedCourse));
+      dispatch(changeCoverCourseActionCreator(updatedCourse));
     } catch (error) {
       showErrorDialog(error.message);
     }
@@ -233,6 +243,23 @@ function asyncDeleteStudent(id) {
     try {
       await api.deleteStudent(id);
       dispatch(deleteStudentActionCreator(true));
+    } catch (error) {
+      showErrorDialog(error.message);
+    }
+    dispatch(hideLoading());
+  };
+}
+
+function asyncChangeStudentRatings({ id, ratings, comment }) {
+  return async (dispatch) => {
+    dispatch(showLoading());
+    try {
+      const updatedStudent = await api.putChangeStudentRatings({
+        id,
+        ratings,
+        comment,
+      });
+      dispatch(changeStudentRatingsActionCreator(updatedStudent));
     } catch (error) {
       showErrorDialog(error.message);
     }
@@ -292,18 +319,47 @@ function asyncDeleteContent(id) {
   };
 }
 
+function asyncChangeContentStatus({ id, status }) {
+  return async (dispatch) => {
+    dispatch(showLoading());
+    try {
+      const updatedContent = await api.postChangeContentStatus({ id, status });
+      dispatch(changeContentStatusActionCreator(updatedContent));
+    } catch (error) {
+      showErrorDialog(error.message);
+    }
+    dispatch(hideLoading());
+  };
+}
+
 export {
   ActionType,
+  getCoursesActionCreator,
+  addCourseActionCreator,
+  detailCourseActionCreator,
+  updateCourseActionCreator,
+  deleteCourseActionCreator,
+  changeCoverCourseActionCreator,
+  addStudentActionCreator,
+  deleteStudentActionCreator,
+  changeStudentRatingsActionCreator,
+  addContentActionCreator,
+  detailContentActionCreator,
+  updateContentActionCreator,
+  deleteContentActionCreator,
+  changeContentStatusActionCreator,
   asyncGetCourses,
   asyncAddCourse,
   asyncDetailCourse,
   asyncUpdateCourse,
   asyncDeleteCourse,
+  asyncChangeCoverTodo,
   asyncAddStudent,
   asyncDeleteStudent,
+  asyncChangeStudentRatings,
   asyncAddContent,
   asyncUpdateContent,
   asyncDetailContent,
   asyncDeleteContent,
+  asyncChangeContentStatus,
 };
-``;

@@ -5,11 +5,17 @@ import isPreloadReducer from "./isPreload/reducer";
 import isAuthRegisterReducer from "./isAuthRegister/reducer";
 import isUserChangePhotoReducer from "./isUserChangePhoto/reducer";
 import {
-  todosReducer,
-  isAddTodoReducer,
-  isDeleteTodoReducer,
-  isEditTodoReducer,
-  detailTodoReducer,
+  coursesReducer,
+  isAddCourseReducer,
+  isDeleteCourseReducer,
+  detailCourseReducer,
+  studentsReducer,
+  isAddStudentReducer,
+  isDeleteStudentReducer,
+  contentsReducer,
+  isAddContentReducer,
+  isDeleteContentReducer,
+  detailContentReducer,
 } from "./courses/reducer";
 
 const store = configureStore({
@@ -24,11 +30,21 @@ const store = configureStore({
     isUserChangePhoto: isUserChangePhotoReducer,
 
     // Course
-    todos: todosReducer,
-    isAddTodo: isAddTodoReducer,
-    isDeleteTodo: isDeleteTodoReducer,
-    isEditTodo: isEditTodoReducer,
-    detailTodo: detailTodoReducer,
+    courses: coursesReducer,
+    isAddCourse: isAddCourseReducer,
+    isDeleteCourse: isDeleteCourseReducer,
+    detailCourse: detailCourseReducer,
+
+    // Student
+    students: studentsReducer,
+    isAddStudent: isAddStudentReducer,
+    isDeleteStudent: isDeleteStudentReducer,
+
+    // Content
+    contents: contentsReducer,
+    isAddContent: isAddContentReducer,
+    isDeleteContent: isDeleteContentReducer,
+    detailContent: detailContentReducer,
   },
 });
 
