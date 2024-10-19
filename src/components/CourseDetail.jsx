@@ -74,7 +74,7 @@ function CourseDetail({ course, onEditCourse }) {
         {/* Cover Image */}
         <div
           style={{
-            width: "100%",
+            width: "300px",
             height: "300px",
             position: "relative",
             backgroundColor: "#f0f0f1",
@@ -87,7 +87,7 @@ function CourseDetail({ course, onEditCourse }) {
               src={previewCover}
               alt="Cover"
               style={{
-                borderRadius: "6px",
+                borderRadius: "5px",
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
