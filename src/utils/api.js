@@ -81,12 +81,7 @@ const api = (() => {
     return user;
   }
 
-  async function postAddCourse({ cover, title, description }) {
-    const formData = new FormData();
-    formData.append("cover", cover);
-    formData.append("title", title);
-    formData.append("description", description);
-
+  async function postAddCourse(formData) {
     const response = await _fetchWithAuth(`${BASE_URL}/courses`, {
       method: "POST",
       body: formData,

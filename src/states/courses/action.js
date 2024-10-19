@@ -158,16 +158,17 @@ function asyncGetCourses(is_me) {
   };
 }
 
-function asyncAddCourse({ cover, title, description }) {
+function asyncAddCourse(formData) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      await api.postAddCourse({ cover, title, description });
-      dispatch(addCourseActionCreator(true));
+      const response = await api.postAddCourse(formData); // Ensure formData contains the cover
+      dispatch(addCourseActionCreator(true)); // Handle success
     } catch (error) {
-      showErrorDialog(error.message);
+      console.error("Failed to add course:", error.message); // Handle error
+    } finally {
+      dispatch(hideLoading());
     }
-    dispatch(hideLoading());
   };
 }
 
