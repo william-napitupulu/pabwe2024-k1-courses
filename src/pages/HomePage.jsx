@@ -21,23 +21,26 @@ function HomePage() {
       // eslint-disable-next-line no-undef
       Swal.fire({
         icon: "success",
-        title: "Todo berhasil dihapus!",
+        title: "Course berhasil dihapus!",
         showConfirmButton: false,
         timer: 700,
       });
       dispatch(deleteCourseActionCreator(false));
     }
     dispatch(asyncGetCourses(is_me));
-  }, [dispatch, isDeleteCourse, is_me]);
+  }, [dispatch, isDeleteCourse]);
 
-  const onDeleteTodo = (id) => {
+  const onDeleteCourse = (id) => {
     dispatch(asyncDeleteCourse(id));
   };
 
   return (
     <section>
       <div className="container pt-1">
-        <CourseList courses={courses} onDeleteTodo={onDeleteTodo}></CourseList>
+        <CourseList
+          courses={courses}
+          onDeleteCourse={onDeleteCourse}
+        ></CourseList>
       </div>
     </section>
   );

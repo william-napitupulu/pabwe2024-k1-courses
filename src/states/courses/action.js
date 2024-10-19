@@ -189,9 +189,12 @@ function asyncUpdateCourse({ id, title, description }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      await api.putUpdateCourse({ id, title, description });
-      const updatedCourse = await api.getDetailCourse(id);
-      dispatch(updateCourseActionCreator(updatedCourse));
+      const updatedCourse = await api.putUpdateCourse({
+        id,
+        title,
+        description,
+      });
+      dispatch(updateCourseActionCreator(updatedCourse)); // Use updated course data directly
     } catch (error) {
       showErrorDialog(error.message);
     }
@@ -212,7 +215,7 @@ function asyncDeleteCourse(id) {
   };
 }
 
-function asyncChangeCoverTodo({ id, cover }) {
+function asyncChangeCoverCourse({ id, cover }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
@@ -354,7 +357,7 @@ export {
   asyncDetailCourse,
   asyncUpdateCourse,
   asyncDeleteCourse,
-  asyncChangeCoverTodo,
+  asyncChangeCoverCourse,
   asyncAddStudent,
   asyncDeleteStudent,
   asyncChangeStudentRatings,
