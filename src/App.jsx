@@ -45,7 +45,7 @@ function App() {
         <div className="w-300px mx-auto mt-5">
           <div className="card shadow-sm">
             <div className="text-center py-2">
-              <h2>Forum App</h2>
+              <h2>D E L T A</h2>
             </div>
             <ul className="nav nav-pills mb-3">
               <li className="nav-item w-50 text-center">

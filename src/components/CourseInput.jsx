@@ -88,7 +88,7 @@ function CourseInput({ onAddCourse }) {
                   }}
                 />
               ) : (
-                <p>No cover image selected</p>
+                <p>No cover image</p>
               )}
             </div>
 
