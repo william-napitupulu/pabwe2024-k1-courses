@@ -1,86 +1,93 @@
-/* Warna background */
+/* Warna background halaman */
 body {
-  background-color: #e0f2f1; /* Warna lembut sesuai dengan prototipe */
+  background-color: #d9f2e6; /* Warna hijau pastel yang lebih sesuai dengan prototipe */
   margin-bottom: 50px;
 }
 
 /* Mengatur tampilan link */
 a {
   text-decoration: none;
-  color: inherit; /* Menyesuaikan warna link */
+  color: inherit;
 }
 
-/* Lebar form */
+/* Container form utama */
 .w-300px {
-  width: 376px;
+  width: 400px; /* Sedikit lebih lebar agar sesuai dengan tampilan prototipe */
   margin: auto;
-  padding: 20px;
-  background-color: #ffffff; /* Background putih untuk form */
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan halus */
 }
 
-/* Mengatur tampilan tab login dan register */
+/* Header judul dan logo */
+.header h1 {
+  font-size: 28px; /* Font yang sedikit lebih besar */
+  color: #388e3c; /* Warna hijau lebih sesuai */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Tab Login dan Register */
 .nav-item {
-  display: table-cell;
+  display: inline-block;
+  width: 48%;
   text-align: center;
   padding: 12px 0;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 50px; /* Membulatkan tab */
+  margin-bottom: 20px;
 }
 
 .nav-item.active {
-  background-color: #4caf50; /* Hijau untuk tab aktif */
+  background-color: #4caf50; /* Hijau lebih gelap untuk tab aktif */
   color: white;
-  border-radius: 20px 20px 0 0;
 }
 
 .nav-item.inactive {
   background-color: #616161; /* Abu-abu untuk tab tidak aktif */
   color: white;
-  border-radius: 20px 20px 0 0;
-}
-
-.nav-profile {
-  border-radius: 50%;
-  width: 36px;
-}
-
-/* Margin atas form */
-.margin-main {
-  margin-top: 80px;
 }
 
 /* Form input */
 input[type="text"], input[type="email"], input[type="password"] {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 15px; /* Padding lebih besar untuk kemudahan penggunaan */
+  margin-bottom: 20px;
   border: 2px solid #4caf50; /* Border hijau */
-  border-radius: 25px;
+  border-radius: 50px; /* Membulatkan input */
+  background-color: #b5e7b8; /* Warna hijau terang untuk input background */
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 18px; /* Font lebih besar */
 }
 
 /* Placeholder input */
 input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="password"]::placeholder {
-  color: #9e9e9e; /* Warna placeholder */
+  color: #2f4f4f; /* Warna placeholder lebih gelap */
 }
 
-/* Tombol submit (login & register) */
+/* Hover effect pada input */
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover {
+  border-color: #388e3c; /* Hijau lebih gelap saat hover */
+}
+
+/* Tombol submit */
 button.submit {
   width: 100%;
-  padding: 10px;
-  background-color: #4caf50; /* Warna hijau */
+  padding: 15px; /* Padding lebih besar pada tombol */
+  background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 25px;
-  font-size: 16px;
+  border-radius: 50px;
+  font-size: 18px; /* Font lebih besar */
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 button.submit:hover {
-  background-color: #388e3c; /* Warna hijau lebih gelap saat hover */
+  background-color: #388e3c; /* Warna lebih gelap saat hover */
 }
 
 /* Loader */
@@ -117,3 +124,8 @@ button.submit:hover {
   animation: inherit;
 }
 
+@keyframes l1 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
