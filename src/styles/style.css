@@ -1,24 +1,89 @@
+/* Warna background */
 body {
-  background-color: #e8e8e8;
+  background-color: #e0f2f1; /* Warna lembut sesuai dengan prototipe */
   margin-bottom: 50px;
 }
+
+/* Mengatur tampilan link */
 a {
   text-decoration: none;
+  color: inherit; /* Menyesuaikan warna link */
 }
+
+/* Lebar form */
 .w-300px {
   width: 376px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff; /* Background putih untuk form */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Mengatur tampilan tab login dan register */
 .nav-item {
   display: table-cell;
-  background: #0d6efd2e;
+  text-align: center;
+  padding: 12px 0;
+  cursor: pointer;
 }
+
+.nav-item.active {
+  background-color: #4caf50; /* Hijau untuk tab aktif */
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.nav-item.inactive {
+  background-color: #616161; /* Abu-abu untuk tab tidak aktif */
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
 .nav-profile {
   border-radius: 50%;
   width: 36px;
 }
+
+/* Margin atas form */
 .margin-main {
   margin-top: 80px;
 }
+
+/* Form input */
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #4caf50; /* Border hijau */
+  border-radius: 25px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Placeholder input */
+input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="password"]::placeholder {
+  color: #9e9e9e; /* Warna placeholder */
+}
+
+/* Tombol submit (login & register) */
+button.submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50; /* Warna hijau */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button.submit:hover {
+  background-color: #388e3c; /* Warna hijau lebih gelap saat hover */
+}
+
+/* Loader */
 .loading {
   position: relative;
   overflow: hidden !important;
@@ -26,6 +91,7 @@ a {
   height: 100vh;
   background-color: #e8e8e8;
 }
+
 .loader {
   position: absolute;
   margin: 0 auto;
@@ -40,15 +106,17 @@ a {
   box-sizing: border-box;
   border-radius: 50%;
   background: radial-gradient(circle 5px, currentColor 95%, #0000),
-    linear-gradient(currentColor 50%, #0000 0) 50%/4px 60% norepeat;
+    linear-gradient(currentColor 50%, #0000 0) 50%/4px 60% no-repeat;
   animation: l1 2s infinite linear;
 }
+
 .loader:before {
   content: "";
   flex: 1;
   background: linear-gradient(currentColor 50%, #0000 0) 50%/4px 80% no-repeat;
   animation: inherit;
 }
+
 @keyframes l1 {
   100% {
     transform: rotate(1turn);
