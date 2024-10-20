@@ -1,29 +1,23 @@
 /* Warna background halaman */
 body {
-  background-color: #d9f2e6; /* Warna hijau pastel yang lebih sesuai dengan prototipe */
+  background-color: #d9f2e6; /* Warna hijau pastel yang lembut sesuai prototipe */
   margin-bottom: 50px;
-}
-
-/* Mengatur tampilan link */
-a {
-  text-decoration: none;
-  color: inherit;
 }
 
 /* Container form utama */
 .w-300px {
-  width: 400px; /* Sedikit lebih lebar agar sesuai dengan tampilan prototipe */
+  width: 400px;
   margin: auto;
   padding: 40px;
   background-color: white;
   border-radius: 25px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan halus */
 }
 
 /* Header judul dan logo */
 .header h1 {
-  font-size: 28px; /* Font yang sedikit lebih besar */
-  color: #388e3c; /* Warna hijau lebih sesuai */
+  font-size: 28px;
+  color: #388e3c; /* Warna hijau untuk judul */
   text-align: center;
   margin-bottom: 30px;
 }
@@ -37,30 +31,26 @@ a {
   cursor: pointer;
   font-weight: bold;
   font-size: 18px;
-  border-radius: 50px; /* Membulatkan tab */
-  margin-bottom: 20px;
-}
-
-.nav-item.active {
-  background-color: #4caf50; /* Hijau lebih gelap untuk tab aktif */
+  border-radius: 50px;
+  background-color: #6b8e23; /* Warna hijau gelap untuk tab aktif */
   color: white;
+  margin: 5px 1%; /* Memberikan sedikit jarak antar tab */
 }
 
 .nav-item.inactive {
-  background-color: #616161; /* Abu-abu untuk tab tidak aktif */
-  color: white;
+  background-color: #555; /* Abu-abu gelap untuk tab yang tidak aktif */
 }
 
-/* Form input */
+/* Form input style */
 input[type="text"], input[type="email"], input[type="password"] {
   width: 100%;
-  padding: 15px; /* Padding lebih besar untuk kemudahan penggunaan */
-  margin-bottom: 20px;
-  border: 2px solid #4caf50; /* Border hijau */
-  border-radius: 50px; /* Membulatkan input */
-  background-color: #b5e7b8; /* Warna hijau terang untuk input background */
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #388e3c; /* Hijau untuk border */
+  border-radius: 50px; /* Membulatkan bentuk input */
   box-sizing: border-box;
-  font-size: 18px; /* Font lebih besar */
+  font-size: 16px;
+  background-color: #b5e7b8; /* Warna hijau terang untuk input background */
 }
 
 /* Placeholder input */
@@ -68,64 +58,25 @@ input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="p
   color: #2f4f4f; /* Warna placeholder lebih gelap */
 }
 
-/* Hover effect pada input */
-input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover {
-  border-color: #388e3c; /* Hijau lebih gelap saat hover */
-}
-
 /* Tombol submit */
 button.submit {
   width: 100%;
-  padding: 15px; /* Padding lebih besar pada tombol */
-  background-color: #4caf50;
+  padding: 12px;
+  background-color: #388e3c; /* Warna hijau */
   color: white;
   border: none;
-  border-radius: 50px;
-  font-size: 18px; /* Font lebih besar */
+  border-radius: 50px; /* Membulat seperti input */
+  font-size: 18px;
   cursor: pointer;
   margin-top: 20px;
+  background-color: #6b8e23; /* Hijau gelap untuk tombol */
 }
 
 button.submit:hover {
-  background-color: #388e3c; /* Warna lebih gelap saat hover */
+  background-color: #556b2f; /* Hijau lebih gelap saat hover */
 }
 
-/* Loader */
-.loading {
-  position: relative;
-  overflow: hidden !important;
-  width: 100vw;
-  height: 100vh;
-  background-color: #e8e8e8;
-}
-
-.loader {
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  top: 40px;
-  width: 96px;
-  aspect-ratio: 1;
-  display: flex;
-  color: #000;
-  border: 4px solid;
-  box-sizing: border-box;
-  border-radius: 50%;
-  background: radial-gradient(circle 5px, currentColor 95%, #0000),
-    linear-gradient(currentColor 50%, #0000 0) 50%/4px 60% no-repeat;
-  animation: l1 2s infinite linear;
-}
-
-.loader:before {
-  content: "";
-  flex: 1;
-  background: linear-gradient(currentColor 50%, #0000 0) 50%/4px 80% no-repeat;
-  animation: inherit;
-}
-
-@keyframes l1 {
-  100% {
-    transform: rotate(1turn);
-  }
+/* Styling untuk hover efek */
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover {
+  border-color: #2f4f4f; /* Hijau lebih gelap saat hover */
 }
