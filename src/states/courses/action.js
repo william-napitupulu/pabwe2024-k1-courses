@@ -189,12 +189,8 @@ function asyncUpdateCourse({ id, title, description }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const updatedCourse = await api.putUpdateCourse({
-        id,
-        title,
-        description,
-      });
-      dispatch(updateCourseActionCreator(updatedCourse)); // Use updated course data directly
+      const response = await api.updateCourse({ id, title, description });
+      dispatch(detailCourseActionCreator(response.data));
     } catch (error) {
       showErrorDialog(error.message);
     }
