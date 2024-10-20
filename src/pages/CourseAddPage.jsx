@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  asyncAddCourse,
-  addCourseActionCreator,
-} from "../states/courses/action";
+import { asyncAddCourse, addCourseActionCreator } from "../states/courses/action";
 import CourseInput from "../components/CourseInput";
 import { useNavigate } from "react-router-dom";
 
@@ -15,10 +12,9 @@ function CourseAddPage() {
 
   useEffect(() => {
     if (isAddCourse) {
-      // eslint-disable-next-line no-undef
       Swal.fire({
         icon: "success",
-        title: "Course successfully added!",
+        title: "Course successfully added!" ,
         showConfirmButton: false,
         timer: 700,
       });
@@ -27,15 +23,18 @@ function CourseAddPage() {
     }
   }, [isAddCourse, navigate, dispatch]);
 
-  const onAddCourse = ({ cover, title, description }) => {
+  const onAddCourse = ({ cover, title, description, instructor, enrollmentStatus, rating }) => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
+    formData.append("instructor", instructor);
+    formData.append("enrollmentStatus", enrollmentStatus);
+    formData.append("rating", rating);
     if (cover) {
-      formData.append("cover", cover); // Add the cover image
+      formData.append("cover", cover);
     }
 
-    dispatch(asyncAddCourse(formData)); // Dispatch formData instead of the object
+    dispatch(asyncAddCourse(formData)); // Dispatch formData with all data
   };
 
   return (

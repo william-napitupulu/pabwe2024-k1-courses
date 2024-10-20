@@ -4,6 +4,9 @@ import { FaUpload } from "react-icons/fa6";
 
 function CourseInput({ onAddCourse }) {
   const [title, setTitle] = useState("");
+  const [instructor, setInstructor] = useState("");     // Instructor Name
+  const [enrollmentStatus, setEnrollmentStatus] = useState("not_enrolled"); // Enrollment Status
+  const [rating, setRating] = useState(0);      
   const [description, setDescription] = useState("");
   const [cover, setCover] = useState(null); // To store selected cover image
   const [previewCover, setPreviewCover] = useState(null); // To preview selected cover image
@@ -17,6 +20,7 @@ function CourseInput({ onAddCourse }) {
     onAddCourse({
       title,
       description,
+      instructor,
       cover,
     });
   }
@@ -48,6 +52,22 @@ function CourseInput({ onAddCourse }) {
     if (target.value.length <= 1000) {
       setDescription(target.value);
     }
+  }
+
+  function handleInstructor ({ target })  {
+    
+    if (target.value.length <= 50) {   // Limit Instrutor Name to 50 characters
+      setInstructor(target.value);
+    }
+  }
+
+  function handleEnrollmentChange (target) {
+
+    setEnrollmentStatus(target.value);
+  }
+
+  function handleRatingChange (target){
+    setRating(target.value);
   }
 
   const handleUploadClick = () => {
@@ -128,6 +148,25 @@ function CourseInput({ onAddCourse }) {
             </div>
           </div>
 
+          {/* Input Instructor */}
+          <div className="mb-3">
+            <label htmlFor="inputInstructor" className="form-label">
+              Instructor Name
+            </label>
+            <div className="input-group">
+              <input
+                type="text"
+                id="inputInstructor"
+                onChange={handleInstructor}
+                value={instructor}
+                className="form-control"
+                required
+              />
+              <span className="input-group-text">{instructor.length}/50</span>
+            </div>
+          </div>
+
+          
           {/* Input Description */}
           <div>
             <label htmlFor="inputBody" className="form-label">
@@ -149,6 +188,7 @@ function CourseInput({ onAddCourse }) {
           <div className="mb-4 text-end mt-3">
             <button type="submit" className="btn btn-primary">
               Save
+              
             </button>
           </div>
         </form>

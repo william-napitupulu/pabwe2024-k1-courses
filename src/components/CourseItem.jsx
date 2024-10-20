@@ -14,6 +14,7 @@ function CourseItem({ course, onDeleteCourse }) {
                 {course.title}
               </Link>
             </h5>
+
           </div>
 
           <div className="col-4 text-end">
@@ -42,6 +43,11 @@ function CourseItem({ course, onDeleteCourse }) {
             >
               <FaTrash /> Hapus
             </button>
+            <div className="mt-2">
+              <div className="instructor">
+                <h6>{course.instructor}</h6>
+              </div>
+            </div>
           </div>
           <div className="col-12">
             <div className="text-sm op-5">
@@ -58,6 +64,7 @@ function CourseItem({ course, onDeleteCourse }) {
 const courseItemShape = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
+  instructor: PropTypes.string.isRequired,
   cover: PropTypes.string,
   created_at: PropTypes.string.isRequired,
   updated_at: PropTypes.string.isRequired,

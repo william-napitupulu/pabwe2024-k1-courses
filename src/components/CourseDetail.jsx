@@ -16,6 +16,7 @@ function CourseDetail({ course, onEditCourse }) {
   const [editedDescription, setEditedDescription] = useState(
     course?.description || ""
   );
+  const [editedInstructor, setEditedInstructor] = useState(course?.instructor || "");     // Instructor Name
   const [previewCover, setPreviewCover] = useState(course?.cover || null); // Default to existing cover
   const [isUploading, setIsUploading] = useState(false);
 
@@ -31,6 +32,7 @@ function CourseDetail({ course, onEditCourse }) {
     if (course) {
       setEditedTitle(course.title);
       setEditedDescription(course.description);
+      setEditedInstructor(course.instructor); 
       setPreviewCover(course.cover); // Set the existing cover if available
     }
   }, [course]);
@@ -64,7 +66,7 @@ function CourseDetail({ course, onEditCourse }) {
   };
 
   const handleSaveChanges = () => {
-    onEditCourse(course.id, editedTitle, editedDescription);
+    onEditCourse(course.id, editedTitle, editedDescription, editedInstructor);
     setIsEditing(false);
   };
 
@@ -108,6 +110,8 @@ function CourseDetail({ course, onEditCourse }) {
             <div className="d-flex justify-content-between align-items-center">
               <div className="d-flex align-items-center">
                 <h5 className="mb-0">{course.title}</h5>
+                
+
               </div>
 
               <div>
@@ -162,6 +166,21 @@ function CourseDetail({ course, onEditCourse }) {
                       onChange={(e) => setEditedTitle(e.target.value)}
                     />
                   </div>
+
+                  <div className="mb-3">
+                    <label htmlFor="editInstructor" className="form-label">
+                      Edit Instructor
+                    </label>
+                    <input
+                    
+                      className="form-control"
+                      id="editInstructor"
+                      value={editedInstructor}
+                      onChange={(e) => setEditedInstructor(e.target.value)}
+                    />
+                  </div>
+
+
                   <div className="mb-3">
                     <label htmlFor="editDescription" className="form-label">
                       Edit Description

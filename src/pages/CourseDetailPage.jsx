@@ -6,7 +6,6 @@ import CourseDetail from "../components/CourseDetail";
 
 function CourseDetailPage() {
   const { id } = useParams();
-
   const { detailCourse } = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -16,12 +15,12 @@ function CourseDetailPage() {
     }
   }, [id, dispatch]);
 
-  const handleEditCourse = (id, title, description) => {
-    dispatch(asyncUpdateCourse(id, title, description));
+  const handleEditCourse = (id, title, description, instructor, enrollmentStatus, rating) => {
+    dispatch(asyncUpdateCourse(id, title, description, instructor, enrollmentStatus, rating));
 
     Swal.fire({
       icon: "success",
-      title: "Berhasil mengedit course!",
+      title: "Successfully updated the course! ",
       showConfirmButton: false,
       timer: 1200,
     });
@@ -31,7 +30,10 @@ function CourseDetailPage() {
     <section>
       <div className="container pt-1">
         {detailCourse != null ? (
-          <CourseDetail course={detailCourse} onEditCourse={handleEditCourse} />
+          <CourseDetail
+            course={detailCourse}
+            onEditCourse={handleEditCourse}
+          />
         ) : null}
       </div>
     </section>
