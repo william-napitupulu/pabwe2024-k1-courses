@@ -134,6 +134,8 @@ const api = (() => {
   }
 
   async function putUpdateCourse({ id, title, description }) {
+    console.log("Updating todo:", { id, title, description });
+
     const response = await _fetchWithAuth(`${BASE_URL}/courses/${id}`, {
       method: "PUT",
       headers: {
@@ -146,6 +148,8 @@ const api = (() => {
     });
 
     const responseJson = await response.json();
+    console.log("API response:", responseJson);
+
     const { success, message } = responseJson;
     if (success !== true) {
       throw new Error(message);
@@ -154,8 +158,8 @@ const api = (() => {
     return message;
   }
 
-  async function getAllCourses(is_me) {
-    const response = await _fetchWithAuth(`${BASE_URL}/courses?is_me=${is_me}`);
+  async function getAllCourses() {
+    const response = await _fetchWithAuth(`${BASE_URL}/courses`);
 
     const responseJson = await response.json();
     const { success, message } = responseJson;

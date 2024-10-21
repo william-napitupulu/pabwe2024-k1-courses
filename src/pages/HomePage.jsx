@@ -27,7 +27,7 @@ function HomePage() {
       });
       dispatch(deleteCourseActionCreator(false));
     }
-    dispatch(asyncGetCourses(is_me));
+    dispatch(asyncGetCourses());
   }, [dispatch, isDeleteCourse]);
 
   const onDeleteCourse = (id) => {
