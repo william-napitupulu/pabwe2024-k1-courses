@@ -80,3 +80,69 @@ button.submit:hover {
 input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover {
   border-color: #2f4f4f; /* Hijau lebih gelap saat hover */
 }
+/* Style untuk form container */
+.form {
+  max-width: 400px;
+  margin: 0 auto; /* Agar form berada di tengah */
+  padding: 20px;
+  background-color: #f8f9fa; /* Warna latar belakang yang ringan */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
+
+/* Style untuk label */
+.form-label {
+  font-weight: bold;
+  color: #333; /* Warna teks */
+}
+
+/* Style untuk input fields */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #ced4da; /* Warna border */
+  border-radius: 4px; /* Membuat ujung input melengkung */
+  font-size: 14px;
+  color: #495057; /* Warna teks input */
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: none; /* Menghilangkan outline biru */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Efek bayangan fokus */
+}
+
+/* Style untuk button */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Warna saat di-hover */
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Efek bayangan saat fokus */
+}
+
+/* Mengatur spacing antar elemen */
+.mb-3 {
+  margin-bottom: 16px;
+}
+
+.mb-4 {
+  margin-bottom: 24px;
+}
+
+/* Untuk membuat tombol di bagian kanan */
+.text-end {
+  text-align: right;
+}
