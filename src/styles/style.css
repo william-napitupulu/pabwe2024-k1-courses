@@ -1,24 +1,30 @@
 body {
-  background-color: #e8e8e8;
+  background-color: #cfe9e5; /* Soft green background */
   margin-bottom: 50px;
 }
+
 a {
   text-decoration: none;
 }
+
 .w-300px {
   width: 376px;
 }
+
 .nav-item {
   display: table-cell;
   background: #0d6efd2e;
 }
+
 .nav-profile {
   border-radius: 50%;
   width: 36px;
 }
+
 .margin-main {
   margin-top: 80px;
 }
+
 .loading {
   position: relative;
   overflow: hidden !important;
@@ -26,6 +32,7 @@ a {
   height: 100vh;
   background-color: #e8e8e8;
 }
+
 .loader {
   position: absolute;
   margin: 0 auto;
@@ -43,17 +50,20 @@ a {
     linear-gradient(currentColor 50%, #0000 0) 50%/4px 60% norepeat;
   animation: l1 2s infinite linear;
 }
+
 .loader:before {
   content: "";
   flex: 1;
   background: linear-gradient(currentColor 50%, #0000 0) 50%/4px 80% no-repeat;
   animation: inherit;
 }
+
 @keyframes l1 {
   100% {
     transform: rotate(1turn);
   }
 }
+
 /* Style untuk bagian dalam dari card body */
 .card-body {
   padding: 20px;
@@ -202,4 +212,130 @@ hr {
 @keyframes hrSlideIn {
   0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Login dan Register */
+.login-register-container {
+  width: 350px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff; /* White background */
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-register-container h2 {
+  text-align: center;
+  color: #3a6351; /* Dark green for title */
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.login-register-container .tab-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3a6351;
+}
+
+.login-register-container .tab-container .tab {
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 15px 15px 0 0;
+}
+
+.login-register-container .tab-container .tab.active {
+  background-color: #3a6351; /* Active tab color */
+  color: white;
+}
+
+.login-register-container .tab-container .tab.inactive {
+  background-color: #737373; /* Inactive tab color */
+  color: white;
+}
+
+.login-register-container input[type="text"],
+.login-register-container input[type="email"],
+.login-register-container input[type="password"] {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #82cbb0; /* Soft green border */
+  border-radius: 30px;
+  background-color: #f7f7f7;
+  font-size: 14px;
+}
+
+.login-register-container input[type="text"]::placeholder,
+.login-register-container input[type="email"]::placeholder,
+.login-register-container input[type="password"]::placeholder {
+  color: #9e9e9e; /* Grey placeholder text */
+}
+
+.login-register-container button[type="submit"] {
+  padding: 12px;
+  background-color: #82cbb0; /* Soft green */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-register-container button[type="submit"]:hover {
+  background-color: #5aa897; /* Darker green for hover */
+}
+
+.login-register-container .login-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Style for tabs login and register */
+.login-register-container .login-tab,
+.login-register-container .register-tab {
+  background-color: #4caf50; /* Green for active tab */
+  color: white;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.login-register-container .login-tab.inactive,
+.login-register-container .register-tab.inactive {
+  background-color: #616161; /* Grey for inactive tab */
+}
+
+/* General adjustments */
+.login-register-container input {
+  border: 2px solid #4caf50;
+  border-radius: 50px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.login-register-container button.submit {
+  width: 100%;
+  padding: 10px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  margin-top: 20px;
+}
+
+.login-register-container button.submit:hover {
+  background-color: #388e3c;
+}
+
+.login-register-container input::placeholder {
+  color: #9e9e9e;
 }
