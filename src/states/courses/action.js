@@ -145,11 +145,11 @@ function changeContentStatusActionCreator(content) {
 }
 
 // Async Functions
-function asyncGetCourses(is_me) {
+function asyncGetCourses() {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const courses = await api.getAllCourses(is_me);
+      const courses = await api.getAllCourses();
       dispatch(getCoursesActionCreator(courses));
     } catch (error) {
       showErrorDialog(error.message);
@@ -189,8 +189,10 @@ function asyncUpdateCourse({ id, title, description }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const response = await api.updateCourse({ id, title, description });
-      dispatch(detailCourseActionCreator(response.data));
+      await api.putUpdateCourse({ id, title, description });
+      const updatedCourse = await api.getDetailCourse(id);
+
+      dispatch(detailCourseActionCreator(updatedCourse));
     } catch (error) {
       showErrorDialog(error.message);
     }
