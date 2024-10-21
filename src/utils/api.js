@@ -81,6 +81,21 @@ const api = (() => {
     return user;
   }
 
+  async function postChangePhotoProfile({ photoFile }) {
+    const formData = new FormData();
+    formData.append("photo", photoFile);
+    const response = await _fetchWithAuth(`${BASE_URL}/users/photo`, {
+      method: "POST",
+      body: formData,
+    });
+    const responseJson = await response.json();
+    const { success, message } = responseJson;
+    if (success !== true) {
+      throw new Error(message);
+    }
+    return message;
+  }
+
   async function postAddCourse(formData) {
     const response = await _fetchWithAuth(`${BASE_URL}/courses`, {
       method: "POST",
@@ -367,6 +382,7 @@ const api = (() => {
     postAuthRegister,
     postAuthLogin,
     getMe,
+    postChangePhotoProfile,
     postAddCourse,
     postChangeCoverCourse,
     putUpdateCourse,
