@@ -5,53 +5,34 @@ import { FaUpload } from "react-icons/fa6";
 function CourseInput({ onAddCourse }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [cover, setCover] = useState(null); // To store selected cover image
-  const [previewCover, setPreviewCover] = useState(null); // To preview selected cover image
+  const [cover, setCover] = useState(null);
+  const [previewCover, setPreviewCover] = useState(null);
 
   const fileInputRef = useRef(null);
 
   function handleOnAddCourse(e) {
     e.preventDefault();
-
-    // Pass the title, description, and cover directly to onAddCourse
-    onAddCourse({
-      title,
-      description,
-      cover,
-    });
+    onAddCourse({ title, description, cover });
   }
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-
     if (
       file &&
       (file.type === "image/jpeg" ||
         file.type === "image/png" ||
         file.type === "image/jpg")
     ) {
-      setCover(file); // Set the selected image file
-      const previewURL = URL.createObjectURL(file); // Set preview URL for the image
+      setCover(file);
+      const previewURL = URL.createObjectURL(file);
       setPreviewCover(previewURL);
     } else {
       alert("Please select a valid image (jpeg, png, jpg).");
     }
   };
 
-  function handleTitle({ target }) {
-    if (target.value.length <= 50) {
-      setTitle(target.value);
-    }
-  }
-
-  function handleDescription({ target }) {
-    if (target.value.length <= 1000) {
-      setDescription(target.value);
-    }
-  }
-
   const handleUploadClick = () => {
-    fileInputRef.current.click(); // Trigger file input click
+    fileInputRef.current.click();
   };
 
   return (
@@ -60,15 +41,14 @@ function CourseInput({ onAddCourse }) {
         <h3 className="ps-2">New Course</h3>
         <hr />
         <form onSubmit={handleOnAddCourse}>
-          {/* Cover Image Preview & Upload */}
           <div className="mb-3">
             <label htmlFor="cover" className="form-label">
               Cover Image
             </label>
             <div
               style={{
-                width: "300px",
-                height: "300px",
+                width: "250px",
+                height: "150px",
                 backgroundColor: "#f0f0f1",
                 position: "relative",
                 marginBottom: "10px",
@@ -84,7 +64,6 @@ function CourseInput({ onAddCourse }) {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "center",
                   }}
                 />
               ) : (
@@ -100,7 +79,6 @@ function CourseInput({ onAddCourse }) {
               <FaUpload /> Upload Cover
             </button>
 
-            {/* Hidden Input for Cover Image */}
             <input
               ref={fileInputRef}
               type="file"
@@ -110,42 +88,34 @@ function CourseInput({ onAddCourse }) {
             />
           </div>
 
-          {/* Input Title */}
           <div className="mb-3">
             <label htmlFor="inputTitle" className="form-label">
               Title
             </label>
-            <div className="input-group">
-              <input
-                type="text"
-                id="inputTitle"
-                onChange={handleTitle}
-                value={title}
-                className="form-control"
-                required
-              />
-              <span className="input-group-text">{title.length}/50</span>
-            </div>
+            <input
+              type="text"
+              id="inputTitle"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
+              className="form-control"
+              required
+            />
           </div>
 
-          {/* Input Description */}
-          <div>
-            <label htmlFor="inputBody" className="form-label">
+          <div className="mb-3">
+            <label htmlFor="inputDescription" className="form-label">
               Description
             </label>
             <textarea
-              rows="5"
-              id="inputBody"
-              onChange={handleDescription}
+              id="inputDescription"
+              onChange={(e) => setDescription(e.target.value)}
+              value={description}
               className="form-control"
+              rows="3"
               required
-            ></textarea>
-            <div className="text-end">
-              <span>{description.length}/1000</span>
-            </div>
+            />
           </div>
 
-          {/* Submit Button */}
           <div className="mb-4 text-end mt-3">
             <button type="submit" className="btn btn-primary">
               Save
