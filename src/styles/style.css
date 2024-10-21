@@ -1,5 +1,5 @@
 body {
-  background-color: #cfe9e5; /* Soft green background */
+  background-color: #f0f4f8; /* Tetap menggunakan soft light blue */
   margin-bottom: 50px;
 }
 
@@ -13,7 +13,7 @@ a {
 
 .nav-item {
   display: table-cell;
-  background: #0d6efd2e;
+  background: #0d6efd2e; /* Tetap */
 }
 
 .nav-profile {
@@ -30,7 +30,7 @@ a {
   overflow: hidden !important;
   width: 100vw;
   height: 100vh;
-  background-color: #e8e8e8;
+  background-color: #f0f4f8; /* Tetap menggunakan soft light blue */
 }
 
 .loader {
@@ -42,7 +42,7 @@ a {
   width: 96px;
   aspect-ratio: 1;
   display: flex;
-  color: #000;
+  color: #3a3a3a; /* Tetap menggunakan dark grey */
   border: 4px solid;
   box-sizing: border-box;
   border-radius: 50%;
@@ -67,7 +67,7 @@ a {
 /* Style untuk bagian dalam dari card body */
 .card-body {
   padding: 20px;
-  background-color: #fff4e6; /* Light peach background */
+  background-color: #ffffff; /* Tetap menggunakan white */
   border-radius: 12px;
   transition: background-color 0.3s ease;
   animation: fadeInBody 0.8s ease-out;
@@ -97,7 +97,7 @@ img.rounded-circle {
   height: 88px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #ff6f61; /* Warm coral border */
+  border: 4px solid #ff6f61; /* Tetap menggunakan warm coral border */
   transition: transform 0.3s ease;
   animation: bounceIn 0.6s ease-out;
 }
@@ -109,7 +109,7 @@ img.rounded-circle {
 }
 
 img.rounded-circle:hover {
-  transform: rotate(5deg); /* Slight tilt effect on hover */
+  transform: rotate(5deg); /* Tetap slight tilt effect on hover */
   animation: rotateEffect 0.3s ease-out;
 }
 
@@ -120,12 +120,12 @@ img.rounded-circle:hover {
 
 /* Style untuk tombol ubah foto profil */
 .btn-outline-primary {
-  color: #ff6f61; /* Coral color */
+  color: #ff6f61; /* Tetap coral color */
   border-color: #ff6f61;
   padding: 10px 16px;
   font-size: 14px;
   transition: all 0.3s ease;
-  border-radius: 20px; /* Rounded button */
+  border-radius: 20px; /* Tetap rounded button */
   animation: fadeInBtn 0.8s ease-out;
 }
 
@@ -184,7 +184,7 @@ img.rounded-circle:hover {
 
 /* Style untuk header di dalam tabel */
 th {
-  background-color: #ff9800; /* Vibrant orange */
+  background-color: #ffb347; /* Tetap soft orange */
   color: #000000;
   font-weight: 600;
   animation: fadeInTableHeader 0.6s ease-out;
@@ -198,14 +198,14 @@ th {
 /* Style untuk data di dalam tabel */
 td {
   background-color: #ffffff;
-  color: #333;
+  color: #4a4a4a; /* Tetap dark grey */
 }
 
 /* Style untuk garis pemisah di dalam card */
 hr {
   margin: 20px 0;
   border: 0;
-  border-top: 1px solid #ffcc80; /* Soft orange separator */
+  border-top: 1px solid #ffcc99; /* Tetap soft peach separator */
   animation: hrSlideIn 0.8s ease-out;
 }
 
@@ -219,42 +219,32 @@ hr {
   width: 350px;
   margin: 50px auto;
   padding: 30px;
-  background-color: #ffffff; /* White background */
+  background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .login-register-container h2 {
   text-align: center;
-  color: #3a6351; /* Dark green for title */
+  color: #3a6351; /* Tetap dark green for title */
   font-weight: 700;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
 
-.login-register-container .tab-container {
+/* Mengubah warna biru pekat menjadi warna yang lebih lembut sesuai gambar */
+.tab-container .tab.active {
+  background-color: #5a8f7b; /* Warna teal yang lebih lembut */
+  color: white;
+}
+
+.tab-container .tab.inactive {
+  background-color: #90a3a7; /* Mengganti warna untuk lebih balance */
+}
+
+.login-register-container form {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #3a6351;
-}
-
-.login-register-container .tab-container .tab {
-  width: 50%;
-  text-align: center;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 15px 15px 0 0;
-}
-
-.login-register-container .tab-container .tab.active {
-  background-color: #3a6351; /* Active tab color */
-  color: white;
-}
-
-.login-register-container .tab-container .tab.inactive {
-  background-color: #737373; /* Inactive tab color */
-  color: white;
+  flex-direction: column;
 }
 
 .login-register-container input[type="text"],
@@ -262,7 +252,7 @@ hr {
 .login-register-container input[type="password"] {
   padding: 12px;
   margin-bottom: 15px;
-  border: 2px solid #82cbb0; /* Soft green border */
+  border: 2px solid #3a6351; /* Tetap green border */
   border-radius: 30px;
   background-color: #f7f7f7;
   font-size: 14px;
@@ -271,12 +261,12 @@ hr {
 .login-register-container input[type="text"]::placeholder,
 .login-register-container input[type="email"]::placeholder,
 .login-register-container input[type="password"]::placeholder {
-  color: #9e9e9e; /* Grey placeholder text */
+  color: #7a7a7a; /* Tetap grey placeholder text */
 }
 
 .login-register-container button[type="submit"] {
   padding: 12px;
-  background-color: #82cbb0; /* Soft green */
+  background-color: #5a8f7b; /* Mengganti tombol biru menjadi teal */
   color: white;
   border: none;
   border-radius: 30px;
@@ -286,7 +276,7 @@ hr {
 }
 
 .login-register-container button[type="submit"]:hover {
-  background-color: #5aa897; /* Darker green for hover */
+  background-color: #4e7a68; /* Warna teal yang lebih gelap saat hover */
 }
 
 .login-register-container .login-title {
@@ -296,9 +286,9 @@ hr {
 }
 
 /* Style for tabs login and register */
-.login-register-container .login-tab,
-.login-register-container .register-tab {
-  background-color: #4caf50; /* Green for active tab */
+.login-tab,
+.register-tab {
+  background-color: #76b39d; /* Tetap teal for active tab */
   color: white;
   border-radius: 20px 20px 0 0;
   text-align: center;
@@ -306,36 +296,38 @@ hr {
   cursor: pointer;
 }
 
-.login-register-container .login-tab.inactive,
-.login-register-container .register-tab.inactive {
-  background-color: #616161; /* Grey for inactive tab */
+.login-tab.inactive,
+.register-tab.inactive {
+  background-color: #a3a3a3; /* Tetap light grey for inactive tab */
 }
 
 /* General adjustments */
-.login-register-container input {
-  border: 2px solid #4caf50;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  border: 2px solid #76b39d; /* Tetap teal border */
   border-radius: 50px;
   padding: 10px;
   font-size: 16px;
   margin-bottom: 10px;
 }
 
-.login-register-container button.submit {
+button.submit {
   width: 100%;
   padding: 10px;
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
-  background-color: #4caf50;
+  background-color: #76b39d; /* Tetap teal background */
   color: #fff;
   border: none;
   margin-top: 20px;
 }
 
-.login-register-container button.submit:hover {
-  background-color: #388e3c;
+button.submit:hover {
+  background-color: #5e8d75; /* Tetap darker teal */
 }
 
-.login-register-container input::placeholder {
-  color: #9e9e9e;
+input::placeholder {
+  color: #7a7a7a; /* Tetap grey placeholder */
 }
