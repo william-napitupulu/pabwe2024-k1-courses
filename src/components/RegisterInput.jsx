@@ -12,7 +12,7 @@ function RegisterInput({ onAuthRegister }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="register-form-container" onSubmit={handleSubmit}>
       <div className="form px-4">
         <div className="mb-3">
           <label htmlFor="inputName" className="form-label">
@@ -23,7 +23,7 @@ function RegisterInput({ onAuthRegister }) {
             id="inputName"
             value={name}
             onChange={onNameChange}
-            className="form-control"
+            className="form-control register-input"
             required
           />
         </div>
@@ -36,7 +36,7 @@ function RegisterInput({ onAuthRegister }) {
             id="inputEmail"
             value={email}
             onChange={onEmailChange}
-            className="form-control"
+            className="form-control register-input"
             placeholder="email@example.com"
             required
           />
@@ -50,12 +50,12 @@ function RegisterInput({ onAuthRegister }) {
             id="inputPassword"
             value={password}
             onChange={onPasswordChange}
-            className="form-control"
+            className="form-control register-input"
             required
           />
         </div>
         <div className="mb-4 text-end">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary register-button">
             Register
           </button>
         </div>

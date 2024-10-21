@@ -10,7 +10,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="container pt-2">
+    <div className="container login-page pt-2">
       <LoginInput onAuthLogin={onAuthLogin} />
     </div>
   );

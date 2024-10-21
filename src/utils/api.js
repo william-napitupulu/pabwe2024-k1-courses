@@ -81,6 +81,21 @@ const api = (() => {
     return user;
   }
 
+  async function postChangePhotoProfile({ photoFile }) {
+    const formData = new FormData();
+    formData.append("photo", photoFile);
+    const response = await _fetchWithAuth(`${BASE_URL}/users/photo`, {
+      method: "POST",
+      body: formData,
+    });
+    const responseJson = await response.json();
+    const { success, message } = responseJson;
+    if (success !== true) {
+      throw new Error(message);
+    }
+    return message;
+  }
+
   async function postAddCourse(formData) {
     const response = await _fetchWithAuth(`${BASE_URL}/courses`, {
       method: "POST",
@@ -119,6 +134,8 @@ const api = (() => {
   }
 
   async function putUpdateCourse({ id, title, description }) {
+    console.log("Updating todo:", { id, title, description });
+
     const response = await _fetchWithAuth(`${BASE_URL}/courses/${id}`, {
       method: "PUT",
       headers: {
@@ -131,6 +148,8 @@ const api = (() => {
     });
 
     const responseJson = await response.json();
+    console.log("API response:", responseJson);
+
     const { success, message } = responseJson;
     if (success !== true) {
       throw new Error(message);
@@ -139,8 +158,8 @@ const api = (() => {
     return message;
   }
 
-  async function getAllCourses(is_me) {
-    const response = await _fetchWithAuth(`${BASE_URL}/courses?is_me=${is_me}`);
+  async function getAllCourses() {
+    const response = await _fetchWithAuth(`${BASE_URL}/courses`);
 
     const responseJson = await response.json();
     const { success, message } = responseJson;
@@ -367,6 +386,7 @@ const api = (() => {
     postAuthRegister,
     postAuthLogin,
     getMe,
+    postChangePhotoProfile,
     postAddCourse,
     postChangeCoverCourse,
     putUpdateCourse,

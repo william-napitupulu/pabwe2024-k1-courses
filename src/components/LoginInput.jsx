@@ -11,7 +11,7 @@ function LoginInput({ onAuthLogin }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form-container" onSubmit={handleSubmit}>
       <div className="form px-4">
         <div className="mb-3">
           <label htmlFor="inputEmail" className="form-label">
@@ -22,7 +22,7 @@ function LoginInput({ onAuthLogin }) {
             id="inputEmail"
             value={email}
             onChange={onEmailChange}
-            className="form-control"
+            className="form-control login-input"
             placeholder="email@example.com"
             required
           />
@@ -36,12 +36,12 @@ function LoginInput({ onAuthLogin }) {
             id="inputPassword"
             value={password}
             onChange={onPasswordChange}
-            className="form-control"
+            className="form-control login-input"
             required
           />
         </div>
-        <div className="mb-4 text-end b">
-          <button type="submit" className="btn btn-primary">
+        <div className="mb-4 text-end">
+          <button type="submit" className="btn btn-primary login-button">
             Login
           </button>
         </div>

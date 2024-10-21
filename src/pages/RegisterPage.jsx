@@ -16,7 +16,7 @@ function RegisterPage() {
   };
 
   return (
-    <div className="container pt-2">
+    <div className="container register-page pt-2">
       <RegisterInput onAuthRegister={onAuthRegister} />
     </div>
   );
