@@ -3,7 +3,7 @@ import CourseItem, { courseItemShape } from "./CourseItem";
 
 function CourseList({ courses, onDeleteCourse }) {
   return (
-    <div>
+    <div className="course-list">
       {courses.map((course) => (
         <CourseItem
           key={course.id}

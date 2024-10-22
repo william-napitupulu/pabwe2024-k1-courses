@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { courseItemShape } from "./CourseItem";
 import { postedAt } from "../utils/tools";
-import { FaClock, FaPenToSquare, FaUpload } from "react-icons/fa6";
+import { FaClock, FaPenToSquare, FaUpload, FaStar } from "react-icons/fa6"; // Added FaStar for the ratings
 import api from "../utils/api";
 import { useDispatch } from "react-redux";
 import { asyncDetailCourse } from "../states/courses/action";
@@ -124,7 +124,15 @@ function CourseDetail({ course }) {
         <div className="row align-items-center">
           <div className="col-12">
             <div className="d-flex justify-content-between align-items-center">
-              <h5 className="mb-0">{course.title}</h5>
+              {/* Display the title and average rating */}
+              <h5 className="mb-0">
+                {course.title}{" "}
+                {course.avg_ratings && (
+                  <span className="text-warning">
+                    <FaStar /> {course.avg_ratings}
+                  </span>
+                )}
+              </h5>
               <div>
                 <button
                   className="btn btn-outline-primary me-2"
